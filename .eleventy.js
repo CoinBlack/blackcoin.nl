@@ -22,6 +22,15 @@ const stripDomain = url => {
 };
 
 module.exports = function(config) {
+  // A handy markdown shortcode for blocks of markdown
+  // coming from our data sources
+  const markdownIt = require('markdown-it');
+  const md = new markdownIt({
+    html: true
+  });
+  config.addPairedShortcode('markdown', (content) => {
+    return md.render(content);
+  });
   // Minify HTML
   config.addTransform("htmlmin", htmlMinTransform);
 

@@ -1,0 +1,17 @@
+---
+title: Work in Progress
+layout: 'layouts/post.njk'
+---
+
+
+    {% for card in trello %}
+    <section>
+      <h2>{{ card.name }}</h2>
+      <div>
+      {% markdown %}
+        {{- card.desc | safe }}
+      {% endmarkdown %}
+      <a href="{{ card.attachmentUrl }}">{{ card.attachmentName }}</a>
+      </div>
+    </section>
+    {% endfor %}
