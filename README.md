@@ -1,17 +1,13 @@
-# Eleventy Starter Ghost
+# BlackcoinNL Website
 
-A starter template to build completely static websites with [Ghost](https://ghost.org) & [Eleventy](https://www.11ty.io)
+Build with [Ghost](https://ghost.org) & [Eleventy](https://www.11ty.io)
 
-**Demo:** https://eleventy.ghost.org
-
-![screenshot](https://user-images.githubusercontent.com/1177460/61880744-5b138980-aeed-11e9-9d8e-07c0b3c03cc5.png)
-
-# Installing
+## Installing
 
 ```bash
 # From Source
-git clone https://github.com/TryGhost/eleventy-starter-ghost.git
-cd eleventy-starter-ghost
+git clone https://github.com/CoinBlack/blackcoin.nl.git
+cd blackcoin.nl
 ```
 
 Then install dependencies
@@ -20,7 +16,7 @@ Then install dependencies
 yarn
 ```
 
-# Running
+## Running
 
 Start the development server
 
@@ -30,11 +26,20 @@ yarn start
 
 You now have a completely static site pulling content from Ghost running as a headless CMS.
 
-By default, the starter will populate content from a default Ghost install located at https://eleventy.ghost.io.
+The `.env` config file with requires credentials from Ghost. You can find your `contentApiKey` in the "Integrations" screen in Ghost Admin. The minimum required version for Ghost is `2.10.0` in order to use this starter without issues.
 
-To use your own install, edit the `.env` config file with your credentials. You can find your `contentApiKey` in the "Integrations" screen in Ghost Admin. The minimum required version for Ghost is `2.10.0` in order to use this starter without issues.
+Refer to `.env.example` for other required variables.
 
-# Deploying with Netlify
+### Extra options
+
+```bash
+# Build the site locally
+yarn build
+# Deploy to Netlify
+netlify deploy
+```
+
+## Deploying with Netlify
 
 The starter contains three config files specifically for deploying with Netlify. A `netlify.toml` file for build settings, a `headers.njk` file with default security headers set for all routes (builds to `/_headers` path), and `redirects.njk` to set Netlify custom domain redirects (builds to `/_redirects` path).
 
@@ -46,17 +51,11 @@ Content API Keys are generally not considered to be sensitive information, they 
 
 Once deployed, you can set up a [Ghost + Netlify Integration](https://docs.ghost.org/integrations/netlify/) to use deploy hooks from Ghost to trigger Netlify rebuilds. That way, any time data changes in Ghost, your site will rebuild on Netlify.
 
-# Optimising
+## Optimising
 
 You can disable the default Ghost Handlebars Theme front-end by enabling the `Make this site private` flag within your Ghost settings. This enables password protection in front of the Ghost install and sets `<meta name="robots" content="noindex" />` so your Eleventy front-end becomes the source of truth for SEO.
 
-# Extra options
+## Copyright & License
 
-```bash
-# Build the site locally
-yarn build
-```
-
-# Copyright & License
-
-Copyright (c) 2013-2020 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2013-2020 Ghost Foundation - Released under the [MIT license](LICENSE)
+Copyright (c) 2020-2022 BlackcoinNL - Released under the [MIT license](LICENSE)
